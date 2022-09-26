@@ -19,11 +19,9 @@ export class AddPersonComponent implements OnInit {
     private router: Router) 
     { }
 
-
   ngOnInit(): void {
     
   }
-
   
   public createSubmit() 
   {
@@ -34,6 +32,4 @@ export class AddPersonComponent implements OnInit {
       this.router.navigate(['/persons/add']).then();
     });
   }
-
-
 }
