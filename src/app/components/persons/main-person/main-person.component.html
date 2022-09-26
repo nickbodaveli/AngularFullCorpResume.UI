@@ -1,0 +1,48 @@
+<h1>Main Page</h1>
+
+<a routerLink="/persons/add" class="btn btn-dark ms-2">Add</a>
+
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">{{ errorMessage }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="!loading && persons.length > 0" class="container mt-3">
+    <div class="row">
+        <div *ngFor="let person of persons" class="col-md-6">
+           <h1>{{person.id}}</h1>
+           <br>
+           <h1>{{person.usersId}}</h1>
+           <br>
+           <h1>{{person.name}}</h1>
+
+        <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+            <a class="btn btn-warning my-1" routerLink="/persons/view/{{person.id}}">View
+                <i class="fa fa-eye"></i>
+            </a>
+            <br>
+            <br>
+            <a class="btn btn-warning my-1" routerLink="/persons/edit/{{person.id}}">Edit
+                <i class="fa fa-pen"></i>
+            </a>
+            
+            <button (click)="deletePerson(person.id)" class="btn btn-danger my-1">Delete
+                <i class="fa fa-trash-alt" ></i>
+            </button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<button (click)="logout()">Logout</button>
+
+
+
+

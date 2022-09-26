@@ -1,0 +1,31 @@
+<h1>Main Page</h1>
+
+<a routerLink="/persons/add" class="btn btn-dark ms-2">Add</a>
+
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">{{ errorMessage }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="!loading && isNotEmpty()" class="container">
+    <div class="col-sm-6">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">Id : <span class="fw-bold">{{person.id}}</span></li>
+            <li class="list-group-item list-group-item-danger">UserId : <span class="fw-bold">{{person.usersId}}</span></li>
+            <li class="list-group-item list-group-item-danger">Name : <span class="fw-bold">{{person.name}}</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a class="btn btn-danger" routerLink="/">Back</a>
+    </div>
+</div>
