@@ -24,9 +24,54 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/assets/template/css/bootstrap.min.css",
+              
+              "src/assets/template/css/owl.carousel.min.css",
+              "src/assets/template/css/flaticon.css",
+              "src/assets/template/css/price_rangs.css",
+              "src/assets/template/css/slicknav.css",
+              "src/assets/template/css/animate.min.css",
+              "src/assets/template/css/magnific-popup.css",
+              "src/assets/template/css/fontawesome-all.min.css",
+              "src/assets/template/css/themify-icons.css",
+              "src/assets/template/css/slick.css",
+              "src/assets/template/css/nice-select.css",
+              "src/assets/template/css/style.css"
             ],
             "scripts": [
+              "src/assets/resume/fontawesome/js/all.min.js",
+
+              "src/assets/template/js/vendor/modernizr-3.5.0.min.js",
+              
+      
+          "src/assets/template/js/vendor/jquery-1.12.4.min.js",
+              "src/assets/template/js/popper.min.js",
+      
+      
+              "src/assets/template/js/bootstrap.min.js",
+              "src/assets/template/js/jquery.slicknav.min.js",
+      
+              "src/assets/template/js/owl.carousel.min.js",
+              "src/assets/template/js/slick.min.js",
+              "src/assets/template/js/price_rangs.js",
+              
+              "src/assets/template/js/wow.min.js",
+          "src/assets/template/js/animated.headline.js",
+              "src/assets/template/js/jquery.magnific-popup.js",
+      
+              "src/assets/template/js/jquery.scrollUp.min.js",
+              "src/assets/template/js/jquery.nice-select.min.js",
+          "src/assets/template/js/jquery.sticky.js",
+              
+              "src/assets/template/js/contact.js",
+              "src/assets/template/js/jquery.form.js",
+              "src/assets/template/js/jquery.validate.min.js",
+              "src/assets/template/js/mail-script.js",
+              "src/assets/template/js/jquery.ajaxchimp.min.js",
+              
+              "src/assets/template/js/plugins.js",
+              "src/assets/template/js/main.js",
+
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
             
@@ -95,9 +140,55 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+                     "src/assets/template/css/bootstrap.min.css",
+              
+                     "src/assets/template/css/owl.carousel.min.css",
+                     "src/assets/template/css/flaticon.css",
+                     "src/assets/template/css/price_rangs.css",
+                     "src/assets/template/css/slicknav.css",
+                     "src/assets/template/css/animate.min.css",
+                     "src/assets/template/css/magnific-popup.css",
+                     "src/assets/template/css/fontawesome-all.min.css",
+                     "src/assets/template/css/themify-icons.css",
+                     "src/assets/template/css/slick.css",
+                     "src/assets/template/css/nice-select.css",
+                     "src/assets/template/css/style.css"
+
             ],
             "scripts": [
+              "src/assets/resume/fontawesome/js/all.min.js",
+
+              "src/assets/template/js/vendor/modernizr-3.5.0.min.js",
+              
+      
+          "src/assets/template/js/vendor/jquery-1.12.4.min.js",
+              "src/assets/template/js/popper.min.js",
+      
+      
+              "src/assets/template/js/bootstrap.min.js",
+              "src/assets/template/js/jquery.slicknav.min.js",
+      
+              "src/assets/template/js/owl.carousel.min.js",
+              "src/assets/template/js/slick.min.js",
+              "src/assets/template/js/price_rangs.js",
+              
+              "src/assets/template/js/wow.min.js",
+          "src/assets/template/js/animated.headline.js",
+              "src/assets/template/js/jquery.magnific-popup.js",
+      
+              "src/assets/template/js/jquery.scrollUp.min.js",
+              "src/assets/template/js/jquery.nice-select.min.js",
+          "src/assets/template/js/jquery.sticky.js",
+              
+              "src/assets/template/js/contact.js",
+              "src/assets/template/js/jquery.form.js",
+              "src/assets/template/js/jquery.validate.min.js",
+              "src/assets/template/js/mail-script.js",
+              "src/assets/template/js/jquery.ajaxchimp.min.js",
+              
+              "src/assets/template/js/plugins.js",
+              "src/assets/template/js/main.js",
+
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
