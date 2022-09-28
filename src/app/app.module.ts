@@ -13,10 +13,14 @@ import { ViewPersonComponent } from './components/persons/view-person/view-perso
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
     // AddPersonComponent,
     // EditPersonComponent,
     // ViewPersonComponent,
