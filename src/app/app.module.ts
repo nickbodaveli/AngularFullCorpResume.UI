@@ -10,8 +10,6 @@ import { AddPersonComponent } from './components/persons/add-person/add-person.c
 import { EditPersonComponent } from './components/persons/edit-person/edit-person.component';
 import { ViewPersonComponent } from './components/persons/view-person/view-person.component';
 
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -32,9 +30,6 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NbThemeModule.forRoot({name:'default'}),
-    NbLayoutModule,
-    NbEvaIconsModule,
     BrowserAnimationsModule
     
     

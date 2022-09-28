@@ -27,6 +27,13 @@ export class SignInComponent implements OnInit {
 
   signIn(user: User){
     if (!this.authForm.valid) return;
+
+    if (user.rememberMe === false){
+      //Disable loader
+      this.loading = false;
+      this.errorMessage = "You must agree remember me!";
+      return;
+    }
     //Enable loader
     this.loading = true;
     return this.authService.signIn(user).subscribe(
