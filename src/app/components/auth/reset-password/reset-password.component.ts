@@ -29,13 +29,13 @@ export class ResetPasswordComponent implements OnInit {
     //Check that token from the url is not expired
     if (this.helper.isTokenExpired(this.token)){
       this.router.navigateByUrl('/auth/sign-in');
-    }
+    } 
   }
 
   updatePassword(user: User){
     if (!this.authForm.valid) return;
     if (user.password !== user.passwordConfirmation) {
-      this.errorMessage = "Passwords don't match!";
+      this.errorMessage = "Passwords don't matchssssssssssss!";
       return;
     }
     this.loading = true;
@@ -43,6 +43,7 @@ export class ResetPasswordComponent implements OnInit {
     user.email = email;
     return this.authService.updatePassword(user, this.token).subscribe(
       user => {
+      
         this.loading = false;
         this.router.navigateByUrl('/auth/sign-in');
       }, error => {

@@ -38,7 +38,8 @@ export class AuthService {
   }
 
   updatePassword(user: User, token: string){
-    console.log(user + " " + token);
+    // console.log(user + " " + token);
+    console.log(user);
     let httpHeaders = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.put<User>(this.apiUrl+'/reset-password', user, { headers: httpHeaders });
   }
