@@ -34,7 +34,7 @@
                             <!-- Header-btn -->
 
                             <div *ngIf="isLoggedIn()" class="header-btn d-none f-right d-lg-block">
-                                <button class="btn head-btn1">{{fullName}}</button>
+                                <button (click)="profile()" class="btn head-btn1">{{fullName}}</button>
                                 <button (click)="logout()" class="btn head-btn1">Log Out</button>
                             </div>
 

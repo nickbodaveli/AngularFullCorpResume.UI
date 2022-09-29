@@ -36,6 +36,12 @@ export class PersonService {
     return this.httpClient.delete<IPerson>(dataUrl).pipe(catchError(this.handleError));
   }
 
+
+  public getPersonByUserId(userId: string) : Observable<IPerson> {
+    let dataUrl: string = `${this.serverUrl}/Person/GetPersonByUserId/${userId}`;
+    return this.httpClient.get<IPerson>(dataUrl).pipe(catchError(this.handleError));
+  }
+
   
   public handleError(error: HttpErrorResponse) {
     let errorMessage: string = '';

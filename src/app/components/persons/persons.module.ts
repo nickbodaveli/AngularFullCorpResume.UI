@@ -9,6 +9,8 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
 import { ViewPersonComponent } from './view-person/view-person.component';
 import { PersonsRoutingModule } from './persons-routing.module';
 import { MainPersonComponent } from './main-person/main-person.component';
+import { PersonProfileViewComponent } from './profile/person-profile-view/person-profile-view.component';
+import { PersonProfileEditComponent } from './profile/person-profile-edit/person-profile-edit.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { MainPersonComponent } from './main-person/main-person.component';
     AddPersonComponent,
     EditPersonComponent,
     ViewPersonComponent,
-    MainPersonComponent
+    MainPersonComponent,
+    PersonProfileViewComponent,
+    PersonProfileEditComponent
   ],
   imports: [
     CommonModule,
