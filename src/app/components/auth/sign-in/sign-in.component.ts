@@ -23,6 +23,16 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoggedIn();
+  }
+
+  isLoggedIn()
+  {
+    var loggedUser = localStorage.getItem('user');
+    if(loggedUser)
+    {
+      this.router.navigateByUrl('/persons');
+    }
   }
 
   signIn(user: User){
