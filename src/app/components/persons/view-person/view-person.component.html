@@ -79,19 +79,47 @@
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
-                                    <h4>Experience</h4>
+                                    <h4 style="display: inline-block;">Experience</h4> 
                                 </div>
                                <ul>
                                 <div *ngFor="let item of person.experiences.workingExperiences; index as i">
                                     <li *ngIf="!isEdit"> {{ item.name }} </li>
                                     <li *ngIf="isEdit && i != person.experiences.workingExperiences.length - 1"> {{ item.name }} </li>
                                     <input *ngIf="isEdit && i == person.experiences.workingExperiences.length - 1" [(ngModel)]="item.name" type="text">
-                                    <button style="color: black;" (click)="publishNewExperience()" *ngIf="isEdit && i == person.experiences.workingExperiences.length - 1">SAVE NEW ITEM</button>
+
                                 </div>
-                                 
                                </ul>
-                               <button (click)="addNewExperience()" style="color: black;">ADD</button>
-                               <button (click)="saveInDatabase()" style="color: black;">SAVE IN DATABASE</button>
+                               <div>
+                                <button (click)="publishNewExperience()" *ngIf="showDoneButton()"
+                                style="color: white; 
+                                width: 100px; 
+                                border: none; 
+                                border-radius: 4px; 
+                                background-color: #fb246a;
+                                padding: 5px;
+                                margin-top: 18px;
+                                ">DONE</button>
+                                <button (click)="addNewExperience()" *ngIf="!showDoneButton()" 
+                                style="color: white; 
+                                display: inline-block;
+                                width: 100px; 
+                                border: none; 
+                                border-radius: 4px; 
+                                background-color: #fb246a;
+                                padding: 5px;
+                                margin-top: 18px;">+</button>
+                               </div>
+
+                               <!-- <button (click)="saveInDatabase()"  
+                                    style="color: white; 
+                                    width: 100px; 
+                                    border: none; 
+                                    border-radius: 10px; 
+                                    background-color: #fb246a;
+                                    margin-top: 5px;
+                                    padding: 5px;">SAVE</button> -->
+
+                          
                             </div>
                         </div>
 

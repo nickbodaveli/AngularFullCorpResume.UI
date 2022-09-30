@@ -67,4 +67,10 @@ export class ViewPersonComponent implements OnInit {
     this.personService.updateWorkingExperience(this.personId!, this.person.experiences.workingExperiences).subscribe();
   }
 
+  showDoneButton(): boolean {
+    if (this.isEdit) return true;
+
+    return false;
+  }
+
 }
