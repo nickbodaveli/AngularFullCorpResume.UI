@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IPerson } from 'src/app/models/IPerson';
+import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -14,6 +14,8 @@ export class ViewPersonComponent implements OnInit {
   public personId : string | null = null;
   public person : IPerson = {} as IPerson;
   public errorMessage : string | null = null;
+  public isEdit : boolean = false;
+
 
   constructor(private activatedRoute : ActivatedRoute,
               private personService: PersonService) {
@@ -41,6 +43,28 @@ export class ViewPersonComponent implements OnInit {
   public isNotEmpty() 
   {
     return Object.keys(this.person).length > 0;
+  }
+
+  public addNewExperience()
+  {
+    if(!this.isEdit)
+    {
+      this.person.experiences.workingExperiences.push(<IWorkingExperiences>{experiencesId: '', id : '', name : ""});
+      this.isEdit = true;
+    }
+  }
+
+  public publishNewExperience()
+  {
+    if(this.isEdit)
+    {
+      this.isEdit = false;
+    }
+  }
+
+  public saveInDatabase()
+  {
+    this.personService.updateWorkingExperience(this.personId!, this.person.experiences.workingExperiences).subscribe();
   }
 
 }

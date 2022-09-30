@@ -79,13 +79,19 @@
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
-                                    <h4>Education + Experience</h4>
+                                    <h4>Experience</h4>
                                 </div>
-                               <ul *ngFor="let item of person.experiences.workingExperiences">
-                                 <li> {{ item.name }} </li>
+                               <ul>
+                                <div *ngFor="let item of person.experiences.workingExperiences; index as i">
+                                    <li *ngIf="!isEdit"> {{ item.name }} </li>
+                                    <li *ngIf="isEdit && i != person.experiences.workingExperiences.length - 1"> {{ item.name }} </li>
+                                    <input *ngIf="isEdit && i == person.experiences.workingExperiences.length - 1" [(ngModel)]="item.name" type="text">
+                                    <button style="color: black;" (click)="publishNewExperience()" *ngIf="isEdit && i == person.experiences.workingExperiences.length - 1">SAVE NEW ITEM</button>
+                                </div>
                                  
                                </ul>
-                               
+                               <button (click)="addNewExperience()" style="color: black;">ADD</button>
+                               <button (click)="saveInDatabase()" style="color: black;">SAVE IN DATABASE</button>
                             </div>
                         </div>
 

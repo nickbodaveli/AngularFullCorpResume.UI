@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { IPerson } from '../models/IPerson';
+import { IPerson, IWorkingExperiences } from '../models/IPerson';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +42,11 @@ export class PersonService {
     return this.httpClient.get<IPerson>(dataUrl).pipe(catchError(this.handleError));
   }
 
+  public updateWorkingExperience(personId: string, workingExperience :  IWorkingExperiences[]) : Observable<any> {
+    console.log(workingExperience);
+    let dataUrl: string = `${this.serverUrl}/Person/UpdateWorkingExperiences`;
+    return this.httpClient.put(dataUrl, workingExperience).pipe(catchError(this.handleError));
+  }
   
   public handleError(error: HttpErrorResponse) {
     let errorMessage: string = '';
