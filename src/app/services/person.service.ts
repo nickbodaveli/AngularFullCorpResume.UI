@@ -41,12 +41,6 @@ export class PersonService {
     let dataUrl: string = `${this.serverUrl}/Person/GetPersonByUserId/${userId}`;
     return this.httpClient.get<IPerson>(dataUrl).pipe(catchError(this.handleError));
   }
-
-  public updateExperience(experienceId: string, workingExperience :  IWorkingExperiences[]) : Observable<any> {
-    console.log(workingExperience);
-    let dataUrl: string = `${this.serverUrl}/Experience/UpdateExperience/${experienceId}`;
-    return this.httpClient.put(dataUrl, workingExperience).pipe(catchError(this.handleError));
-  }
   
   public handleError(error: HttpErrorResponse) {
     let errorMessage: string = '';

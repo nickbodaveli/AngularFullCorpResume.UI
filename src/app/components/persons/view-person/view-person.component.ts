@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
+import { ExperienceService } from 'src/app/services/experience.service';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -18,7 +19,9 @@ export class ViewPersonComponent implements OnInit {
 
 
   constructor(private activatedRoute : ActivatedRoute,
-              private personService: PersonService) {
+              private personService: PersonService,
+              private experienceService : ExperienceService
+              ) {
 
   }
 
@@ -64,7 +67,7 @@ export class ViewPersonComponent implements OnInit {
 
   public saveInDatabase()
   {
-    this.personService.updateExperience(this.person.experiences.id!, this.person.experiences.workingExperiences).subscribe();
+    this.experienceService.updateExperience(this.person.experiences.id!, this.person.experiences.workingExperiences).subscribe();
   }
 
   showDoneButton(): boolean {
