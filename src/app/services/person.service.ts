@@ -42,9 +42,9 @@ export class PersonService {
     return this.httpClient.get<IPerson>(dataUrl).pipe(catchError(this.handleError));
   }
 
-  public updateWorkingExperience(personId: string, workingExperience :  IWorkingExperiences[]) : Observable<any> {
+  public updateExperience(experienceId: string, workingExperience :  IWorkingExperiences[]) : Observable<any> {
     console.log(workingExperience);
-    let dataUrl: string = `${this.serverUrl}/Person/UpdateWorkingExperiences`;
+    let dataUrl: string = `${this.serverUrl}/Experience/UpdateExperience/${experienceId}`;
     return this.httpClient.put(dataUrl, workingExperience).pipe(catchError(this.handleError));
   }
   

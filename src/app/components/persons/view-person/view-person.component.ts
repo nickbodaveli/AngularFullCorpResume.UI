@@ -49,7 +49,7 @@ export class ViewPersonComponent implements OnInit {
   {
     if(!this.isEdit)
     {
-      this.person.experiences.workingExperiences.push(<IWorkingExperiences>{experiencesId: '', id : '', name : ""});
+      this.person.experiences.workingExperiences.push(<IWorkingExperiences>{experiencesId: this.person.experiences.id, name : ""});
       this.isEdit = true;
     }
   }
@@ -64,7 +64,7 @@ export class ViewPersonComponent implements OnInit {
 
   public saveInDatabase()
   {
-    this.personService.updateWorkingExperience(this.personId!, this.person.experiences.workingExperiences).subscribe();
+    this.personService.updateExperience(this.person.experiences.id!, this.person.experiences.workingExperiences).subscribe();
   }
 
   showDoneButton(): boolean {
