@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPerson } from 'src/app/models/IPerson';
+import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
+import { ExperienceService } from 'src/app/services/experience.service';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -11,42 +12,68 @@ import { PersonService } from 'src/app/services/person.service';
 export class PersonProfileEditComponent implements OnInit {
 
   public loading : boolean = false;
-  public personId: string | null = null;
+  public personId : string | null = null;
   public person : IPerson = {} as IPerson;
   public errorMessage : string | null = null;
+  public isEdit : boolean = false;
+
 
   constructor(private activatedRoute : ActivatedRoute,
-              private personService : PersonService,
-              private router : Router)
-              { }
+              private personService: PersonService,
+              private experienceService : ExperienceService
+              ) {
+
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
       this.personId = param.get('personId');
     });
+
     if(this.personId)
     {
+      this.loading = true;
       this.personService.getPerson(this.personId).subscribe((data) => {
-        this.person = data;
-        this.loading = false;
+      this.person = data;
+      this.loading = false;
       }, (error) => {
         this.errorMessage = error;
         this.loading = false;
-      })
+      });
     }
   }
 
-  public submitUpdate()
+  public isNotEmpty() 
   {
-    if(this.personId)
+    return Object.keys(this.person).length > 0;
+  }
+
+  public addNewExperience()
+  {
+    if(!this.isEdit)
     {
-      this.personService.updatePerson(this.person, this.personId).subscribe((data) => {
-        this.router.navigate(['/']).then();
-      }, (error) => {
-        this.errorMessage = error;
-        this.router.navigate([`/persons/edit/${this.personId}`]).then();
-      });
+      this.person.experiences.workingExperiences.push(<IWorkingExperiences>{experiencesId: this.person.experiences.id, name : ""});
+      this.isEdit = true;
     }
+  }
+
+  public publishNewExperience()
+  {
+    if(this.isEdit)
+    {
+      this.isEdit = false;
+    }
+  }
+
+  public saveInDatabase()
+  {
+    this.experienceService.updateExperience(this.person.experiences.id!, this.person.experiences.workingExperiences).subscribe();
+  }
+
+  showDoneButton(): boolean {
+    if (this.isEdit) return true;
+
+    return false;
   }
 
 }
