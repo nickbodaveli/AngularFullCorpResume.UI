@@ -2,17 +2,39 @@ export interface IPerson {
     id: string;
     usersId: string;
     name: string;
-    experiences : IExperiences;
-}
-
-export interface IExperiences {
-    id: string;
-    personsId: string;
-    workingExperiences: Array<IWorkingExperiences>
+    about : string;
+    lastName : string;
+    email : string;
+    skype : string;
+    phone : string;
+    website: string;
+    workingExperiences: Array<IWorkingExperiences>;
+    educations: Array<IEducations>;
+    skills: Array<ISkills>;
 }
 
 export interface IWorkingExperiences {
     id: string;
-    experiencesId: string;
+    personsId: string;
+    name:string;
+    description : string;
+    startDate : string;
+    finishDate : string;
+    isPresent : string;
+}
+
+export interface IEducations {
+    id: string;
+    personsId: string;
+    name:string;
+    description : string;
+    startDate : string;
+    finishDate : string;
+    isPresent : string;
+}
+
+export interface ISkills {
+    id: string;
+    personsId: string;
     name:string;
 }

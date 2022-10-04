@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
+import { EducationService } from 'src/app/services/education.service';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { PersonService } from 'src/app/services/person.service';
+import { SkillService } from 'src/app/services/skill.service';
 
 @Component({
   selector: 'app-view-person',
@@ -20,7 +22,10 @@ export class ViewPersonComponent implements OnInit {
 
   constructor(private activatedRoute : ActivatedRoute,
               private personService: PersonService,
-              private experienceService : ExperienceService
+              private experienceService : ExperienceService,
+              private educationService : EducationService,
+              private skillService : SkillService
+
               ) {
 
   }
@@ -52,7 +57,16 @@ export class ViewPersonComponent implements OnInit {
   {
     if(!this.isEdit)
     {
-      this.person.experiences.workingExperiences.push(<IWorkingExperiences>{experiencesId: this.person.experiences.id, name : ""});
+      this.person.workingExperiences.push(
+        <IWorkingExperiences>
+        {
+          personsId: this.person.id, 
+          name:'',
+          description : '',
+          startDate : '',
+          finishDate : '',
+          isPresent : ''
+        });
       this.isEdit = true;
     }
   }
@@ -67,7 +81,7 @@ export class ViewPersonComponent implements OnInit {
 
   public saveInDatabase()
   {
-    this.experienceService.updateExperience(this.person.experiences.id!, this.person.experiences.workingExperiences).subscribe();
+    this.experienceService.updateExperience(this.person.id!, this.person.workingExperiences).subscribe();
   }
 
   showDoneButton(): boolean {

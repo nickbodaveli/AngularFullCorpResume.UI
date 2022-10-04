@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
-                                        <h4>{{person.name}}</h4>
+                                        <h4>{{person.name}} {{person.lastName}}</h4>
                                     </a>
                                     <ul>
                                         <li>Creative Agency</li>
@@ -59,9 +59,9 @@
                             <div class="post-details1 mb-50">
                                 <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
-                                    <h4>Job Description</h4>
+                                    <h4>About Me</h4>
                                 </div>
-                                <p>It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.</p>
+                                <p>{{person.about}}</p>
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
@@ -76,11 +76,13 @@
                                    <li>Strong problem solving and debugging skills</li>
                                </ul>
                             </div>
+
+
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
-                                    <h4 style="display: inline-block;">Experience</h4> 
-                                    <button (click)="addNewExperience()"
+                                    <h4 style="display: inline-block;">Education</h4> 
+                                    <button (click)="addNewEducation()"
                                     style="color: white;  
                                     display: inline-block;
                                     width: 100px; 
@@ -93,15 +95,16 @@
                                     ">+</button>
                                 </div>
                                <ul>
-                                <div *ngFor="let item of person.experiences.workingExperiences; index as i">
-                                    <li *ngIf="!isEdit"> {{ item.name }} </li>
-                                    <li *ngIf="isEdit && i != person.experiences.workingExperiences.length - 1"> {{ item.name }} </li>
-                                    <input *ngIf="isEdit && i == person.experiences.workingExperiences.length - 1" [(ngModel)]="item.name" type="text">
-
+                                <div *ngFor="let item of person.educations; index as i">
+                                    <li *ngIf="!isEditEducation"> {{ item.name }}</li>
+                                    <p *ngIf="!isEditEducation"> {{ item.description }} </p>
+                                    <p *ngIf="!isEditEducation">{{ item.startDate }} - {{ item.finishDate }}</p>
+                                    <li *ngIf="isEditEducation && i != person.educations.length - 1"> {{ item.name }} </li>
+                                    <input *ngIf="isEditEducation && i == person.educations.length - 1" [(ngModel)]="item.name" type="text">
                                 </div>
                                </ul>
                                <div>
-                                <button (click)="publishNewExperience()" *ngIf="showDoneButton()"
+                                <button (click)="publishNewEducation()" *ngIf="showEducationDoneButton()"
                                 style="color: white; 
                                 width: 100px; 
                                 border: none; 
@@ -110,7 +113,7 @@
                                 padding: 5px;
                                 margin-top: 18px;
                                 ">DONE</button>
-                                <button (click)="saveInDatabase()" *ngIf="!showDoneButton()" 
+                                <button (click)="saveEducation()" *ngIf="!showEducationDoneButton()" 
                                 style="color: white;  
                                 display: inline-block;
                                 width: 100px; 
@@ -120,20 +123,59 @@
                                 padding: 5px;
                                 margin-top: 18px;">SAVE</button>
                                </div>
-
-                               
-
-                               <!-- <button (click)="saveInDatabase()"  
-                                    style="color: white; 
-                                    width: 100px; 
-                                    border: none; 
-                                    border-radius: 10px; 
-                                    background-color: #fb246a;
-                                    margin-top: 5px;
-                                    padding: 5px;">SAVE</button> -->
-
-                          
                             </div>
+
+
+                            <div class="post-details2  mb-50">
+                                <!-- Small Section Tittle -->
+                               <div class="small-section-tittle">
+                                   <h4 style="display: inline-block;">Experience</h4> 
+                                   <button (click)="addNewExperience()"
+                                   style="color: white;  
+                                   display: inline-block;
+                                   width: 100px; 
+                                   border: none; 
+                                   border-radius: 4px; 
+                                   background-color: #fb246a;
+                                   padding: 5px;
+                                   margin-top: 18px;
+                                   margin-left: 70%;
+                                   ">+</button>
+                               </div>
+                              <ul>
+                                <div *ngFor="let item of person.workingExperiences; index as i">
+                                    <li *ngIf="!isEditExperience"> {{ item.name }} </li>
+                                    <p *ngIf="!isEditExperience"> {{ item.description }} </p>
+                                    <p *ngIf="!isEditExperience">{{ item.startDate }} - {{ item.finishDate }}</p>
+                                    <li *ngIf="isEditExperience && i != person.workingExperiences.length - 1"> {{ item.name }} </li>
+                                    <input *ngIf="isEditExperience && i == person.workingExperiences.length - 1" [(ngModel)]="item.name" type="text">
+                                </div>
+                              </ul>
+                              <div>
+                               <button (click)="publishNewExperience()" *ngIf="showExperienceDoneButton()"
+                               style="color: white; 
+                               width: 100px; 
+                               border: none; 
+                               border-radius: 4px; 
+                               background-color: #fb246a;
+                               padding: 5px;
+                               margin-top: 18px;
+                               ">DONE</button>
+                               <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
+                               style="color: white;  
+                               display: inline-block;
+                               width: 100px; 
+                               border: none; 
+                               border-radius: 4px; 
+                               background-color: #fb246a;
+                               padding: 5px;
+                               margin-top: 18px;">SAVE</button>
+                              </div>
+                           </div>
+
+
+
+
                         </div>
 
                     </div>
@@ -144,15 +186,16 @@
                        </div>
                         <div class="post-details4  mb-50">
                             <!-- Small Section Tittle -->
-                           <div class="small-section-tittle">
+                           <!-- <div class="small-section-tittle">
                                <h4>Company Information</h4>
                            </div>
                               <span>Colorlib</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> -->
                             <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                                <li>Skype: <span>{{person.skype}} </span></li>
+                                <li>Web : <span> {{person.website}}</span></li>
+                                <li>Email: <span>{{person.email}}</span></li>
+                                <li>Phone: <span>{{person.phone}}</span></li>
                             </ul>
                        </div>
                     </div>

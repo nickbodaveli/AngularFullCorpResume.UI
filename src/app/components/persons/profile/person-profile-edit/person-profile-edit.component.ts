@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
+import { IEducations, IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
+import { EducationService } from 'src/app/services/education.service';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { PersonService } from 'src/app/services/person.service';
+import { SkillService } from 'src/app/services/skill.service';
 
 @Component({
   selector: 'app-person-profile-edit',
@@ -15,12 +17,15 @@ export class PersonProfileEditComponent implements OnInit {
   public personId : string | null = null;
   public person : IPerson = {} as IPerson;
   public errorMessage : string | null = null;
-  public isEdit : boolean = false;
+  public isEditEducation : boolean = false;
+  public isEditExperience : boolean = false;
 
 
   constructor(private activatedRoute : ActivatedRoute,
               private personService: PersonService,
-              private experienceService : ExperienceService
+              private experienceService : ExperienceService,
+              private educationService : EducationService,
+              private skillService : SkillService
               ) {
 
   }
@@ -35,6 +40,7 @@ export class PersonProfileEditComponent implements OnInit {
       this.loading = true;
       this.personService.getPerson(this.personId).subscribe((data) => {
       this.person = data;
+      console.log(this.person);
       this.loading = false;
       }, (error) => {
         this.errorMessage = error;
@@ -50,28 +56,74 @@ export class PersonProfileEditComponent implements OnInit {
 
   public addNewExperience()
   {
-    if(!this.isEdit)
+    if(!this.isEditExperience)
     {
-      this.person.experiences.workingExperiences.push(<IWorkingExperiences>{experiencesId: this.person.experiences.id, name : ""});
-      this.isEdit = true;
+      this.person.workingExperiences.push(
+        <IWorkingExperiences>
+        {
+          personsId: this.person.id, 
+          name:'',
+          description : '',
+          startDate : '',
+          finishDate : '',
+          isPresent : ''
+        });
+      this.isEditExperience = true;
+    }
+  }
+
+  public addNewEducation()
+  {
+    if(!this.isEditEducation)
+    {
+      this.person.workingExperiences.push(
+        <IEducations>
+        {
+          personsId: this.person.id, 
+          name:'',
+          description : '',
+          startDate : '',
+          finishDate : '',
+          isPresent : ''
+        });
+      this.isEditEducation = true;
     }
   }
 
   public publishNewExperience()
   {
-    if(this.isEdit)
+    if(this.isEditExperience)
     {
-      this.isEdit = false;
+      this.isEditExperience = false;
     }
   }
 
-  public saveInDatabase()
+  public publishNewEducation()
   {
-    this.experienceService.updateExperience(this.person.experiences.id!, this.person.experiences.workingExperiences).subscribe();
+    if(this.isEditEducation)
+    {
+      this.isEditEducation = false;
+    }
   }
 
-  showDoneButton(): boolean {
-    if (this.isEdit) return true;
+  public saveExperience()
+  {
+    this.experienceService.updateExperience(this.person.id!, this.person.workingExperiences).subscribe();
+  }
+
+  public saveEducation()
+  {
+    this.educationService.updateEducation(this.person.id!, this.person.workingExperiences).subscribe();
+  }
+
+  showExperienceDoneButton(): boolean {
+    if (this.isEditExperience) return true;
+
+    return false;
+  }
+
+  showEducationDoneButton(): boolean {
+    if (this.isEditEducation) return true;
 
     return false;
   }
