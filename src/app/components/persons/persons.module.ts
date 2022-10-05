@@ -11,6 +11,7 @@ import { PersonsRoutingModule } from './persons-routing.module';
 import { MainPersonComponent } from './main-person/main-person.component';
 import { PersonProfileViewComponent } from './profile/person-profile-view/person-profile-view.component';
 import { PersonProfileEditComponent } from './profile/person-profile-edit/person-profile-edit.component';
+import { SpecifySkillComponent } from './profile/person-profile-edit/specify-profile-edit-pages/specify-skill/specify-skill/specify-skill.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PersonProfileEditComponent } from './profile/person-profile-edit/person
     ViewPersonComponent,
     MainPersonComponent,
     PersonProfileViewComponent,
-    PersonProfileEditComponent
+    PersonProfileEditComponent,
+    SpecifySkillComponent,
   ],
   imports: [
     CommonModule,

@@ -176,7 +176,158 @@
 
 
 
+
+
+
+
+
+                           <div class="post-details2  mb-50">
+                            <!-- Small Section Tittle -->
+                           <div class="small-section-tittle">
+                               <h4 style="display: inline-block;">Skills</h4> 
+                               <button (click)="addNewSkill()"
+                               style="color: white;  
+                               display: inline-block;
+                               width: 100px; 
+                               border: none; 
+                               border-radius: 4px; 
+                               background-color: #fb246a;
+                               padding: 5px;
+                               margin-top: 18px;
+                               margin-left: 70%;
+                               ">+</button>
+                           </div>
+                          <ul>
+                            <div *ngFor="let item of person.skills index as i">
+                                <li *ngIf="!isEditSkill"> {{ item.name }} </li>
+                                <li *ngIf="isEditSkill && i != person.skills.length - 1"> {{ item.name }} </li>
+                                <input *ngIf="isEditSkill && i == person.skills.length - 1" [(ngModel)]="item.name" type="text">
+                            </div>
+                          </ul>
+                          <div>
+                           <button (click)="publishNewSkill()" *ngIf="showSkillDoneButton()"
+                           style="color: white; 
+                           width: 100px; 
+                           border: none; 
+                           border-radius: 4px; 
+                           background-color: #fb246a;
+                           padding: 5px;
+                           margin-top: 18px;
+                           ">DONE</button>
+                           <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
+                           style="color: white;  
+                           display: inline-block;
+                           width: 100px; 
+                           border: none; 
+                           border-radius: 4px; 
+                           background-color: #fb246a;
+                           padding: 5px;
+                           margin-top: 18px;">SAVE</button>
+                          </div>
+                       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       <div class="post-details2  mb-50 col-lg-12">
+                        <!-- Small Section Tittle -->
+                       <div class="small-section-tittle">
+                           <h4 style="display: inline-block;">Skills</h4> 
+                            <div style="display: flex;">
+                                <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                                style="color: white;  
+                                display: inline-block;
+                                background-color: #fb246a;
+                                margin-top: 18px;
+                                margin-left: 70%;
+                                ">+</a>
+                                <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                                style="color: white;  
+                                display: inline-block;
+                                background-color: #fb246a;
+                                margin-top: 18px;
+                                margin-left: 1%;
+                                ">edit</a>
+                            </div>
+                       </div>
+                      <ul>
+                        <div *ngFor="let item of person.skills index as i">
+                            <li *ngIf="!isEditSkill"> {{ item.name }} </li>
+                            <li *ngIf="isEditSkill && i != person.skills.length - 1"> {{ item.name }} </li>
+                            <input *ngIf="isEditSkill && i == person.skills.length - 1" [(ngModel)]="item.name" type="text">
                         </div>
+                      </ul>
+                      <div>
+                       <button (click)="publishNewSkill()" *ngIf="showSkillDoneButton()"
+                       style="color: white; 
+                       width: 100px; 
+                       border: none; 
+                       border-radius: 4px; 
+                       background-color: #fb246a;
+                       padding: 5px;
+                       margin-top: 18px;
+                       ">DONE</button>
+                       <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
+                       style="color: white;  
+                       display: inline-block;
+                       width: 100px; 
+                       border: none; 
+                       border-radius: 4px; 
+                       background-color: #fb246a;
+                       padding: 5px;
+                       margin-top: 18px;">SAVE</button>
+                      </div>
+                   </div>
+
+
+
+
+
+
+
+
+
+
+
+                       <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Show a second modal and hide this one with the button below.
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
+
+
+
+
+
+
+
+
+                        </div>
+
+                        
 
                     </div>
                     <!-- Right Content -->

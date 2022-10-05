@@ -1,0 +1,66 @@
+<section class="contact-section">
+    <div class="container col-sm-4">
+<div _ngcontent-pda-c55="" class="single-job-items mb-50">
+    <div _ngcontent-pda-c55="" class="job-items">
+        <div _ngcontent-pda-c55="" class="company-img company-img-details" style="display: inline-block;">
+            
+        
+
+            <div class="post-details2 mb-50">
+                <!-- Small Section Tittle -->
+               <div class="small-section-tittle">
+                   <div style="display: flex;">
+                    <div>
+                        <h4>Skills</h4> 
+                    </div>
+                    </div>
+               </div>
+              <ul>
+                <div *ngFor="let item of person.skills index as i">
+                    <li *ngIf="!isEditSkill"> {{ item.name }} </li>
+                    <li *ngIf="isEditSkill && i != person.skills.length - 1"> {{ item.name }} </li>
+                    <input *ngIf="isEditSkill && i == person.skills.length - 1" [(ngModel)]="item.name" type="text">
+                </div>
+              </ul>
+              <div>
+               <button (click)="publishNewSkill()" *ngIf="showSkillDoneButton()"
+               style="color: white; 
+               width: 100px; 
+               border: none; 
+               border-radius: 4px; 
+               background-color: #fb246a;
+               padding: 5px;
+               margin-top: 18px;
+               ">DONE</button>
+               <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
+               style="color: white;  
+               display: inline-block;
+               width: 100px; 
+               border: none; 
+               border-radius: 4px; 
+               background-color: #fb246a;
+               padding: 5px;
+               margin-top: 18px;">SAVE</button>
+              </div>
+           </div>
+
+
+        </div>
+        </div>
+        <div>
+            <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+            style="color: white;  
+            background-color: #fb246a;
+            margin-top: 18px;
+            ">+</a>
+    
+            <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+            style="color: white;  
+            background-color: #fb246a;
+            margin-top: 18px;
+            margin-left: 5%;
+            ">edit</a>
+            </div>
+    </div>
+</div>
+</section>

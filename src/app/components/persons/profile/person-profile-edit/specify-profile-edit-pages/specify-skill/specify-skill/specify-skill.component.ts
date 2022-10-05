@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IEducations, IPerson, ISkills, IWorkingExperiences } from 'src/app/models/IPerson';
 import { EducationService } from 'src/app/services/education.service';
 import { ExperienceService } from 'src/app/services/experience.service';
@@ -7,11 +7,11 @@ import { PersonService } from 'src/app/services/person.service';
 import { SkillService } from 'src/app/services/skill.service';
 
 @Component({
-  selector: 'app-person-profile-edit',
-  templateUrl: './person-profile-edit.component.html',
-  styleUrls: ['./person-profile-edit.component.css']
+  selector: 'app-specify-skill',
+  templateUrl: './specify-skill.component.html',
+  styleUrls: ['./specify-skill.component.css']
 })
-export class PersonProfileEditComponent implements OnInit {
+export class SpecifySkillComponent implements OnInit {
 
   public loading : boolean = false;
   public personId : string | null = null;
