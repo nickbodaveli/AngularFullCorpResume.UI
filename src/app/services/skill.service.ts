@@ -9,12 +9,33 @@ import { ISkills } from '../models/IPerson';
 export class SkillService {
 
   private serverUrl: string = `https://localhost:7172/api`;
+  public skillId : string | null = null;
 
   constructor(private httpClient: HttpClient) { }
 
   public updateSkill(skillId: string, education :  ISkills[]) : Observable<any> {
     let dataUrl: string = `${this.serverUrl}/Skill/UpdateSkill/${skillId}`;
     return this.httpClient.put(dataUrl, education).pipe(catchError(this.handleError));
+  }
+
+  public getSkill(skillId: string) : Observable<ISkills> {
+    if(skillId)
+    {
+      this.skillId = skillId;
+      console.log("mushaobs bliad" + this.skillId);
+    }
+    else 
+    {
+      console.log("not working")
+    }
+    let dataUrl: string = `${this.serverUrl}/Skill/GetSkill/${skillId}`;
+    return this.httpClient.get<ISkills>(dataUrl).pipe(catchError(this.handleError));
+  }
+
+  public setModalSkillId(skillId : string)
+  {
+    console.log(skillId + "it working too");
+    this.getSkill(skillId);
   }
   
   public handleError(error: HttpErrorResponse) {

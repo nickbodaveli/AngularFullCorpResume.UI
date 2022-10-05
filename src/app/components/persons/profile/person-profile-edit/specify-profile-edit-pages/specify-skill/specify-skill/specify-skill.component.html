@@ -11,23 +11,24 @@
                     <div style="display: flex;">
                         <h4>Skills</h4> 
                         <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
-                        style="margin-left:auto; color: #fb246a;" href=""><i class="fa fa-edit" style="font-size:20px"></i></a>
+                        style="margin-left:auto; color: #fb246a;" ><i class="fa fa-add" style="font-size:20px"></i></a>
                     </div>
                     </div>
                </div>
               <ul>
                 <div>
-                    <div *ngFor="let item of person.skills index as i">
+                    <div *ngFor="let item of person.skills; index as i">
                         <ul style="display: flex; margin: 0; padding: 0;">
-                            <li *ngIf="!isEditSkill" style="padding-top: 10px;"> {{ item.name }}</li>
+                            <li *ngIf="!isEditSkill" style="padding-top: 5px;"> {{ item.name }}</li>
                             <li style="margin-left: auto; padding: 0; list-style: none;">
-                                <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
-                                style="margin-left:auto; color: #fb246a;" href=""><i class="fa fa-add" style="font-size:20px"></i></a>
+                                <a (click)="getModalSkillId(item.id)" data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                                style="margin-left:auto; color: #fb246a;" ><i class="fa fa-edit" style="font-size:20px"></i></a>
                             </li>
                         </ul>
                         <li style="list-style: none;">1111111</li>
                         <li style="list-style: none;">2222222</li>
                         <li style="list-style: none;">3333333</li>
+                        <hr>
                     </div>
                 </div>
               </ul>
@@ -42,21 +43,6 @@
 
 
 
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Show a second modal and hide this one with the button below.
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<app-specify-skill-modal></app-specify-skill-modal>
   
   <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->

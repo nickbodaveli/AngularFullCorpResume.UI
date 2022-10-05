@@ -40,13 +40,19 @@ export class SpecifySkillComponent implements OnInit {
       this.loading = true;
       this.personService.getPerson(this.personId).subscribe((data) => {
       this.person = data;
-      console.log(this.person);
+      // console.log(this.person);
       this.loading = false;
       }, (error) => {
         this.errorMessage = error;
         this.loading = false;
       });
     }
+  }
+
+  public getModalSkillId(skillId : string)
+  {
+    console.log(skillId + "workisss");
+    this.skillService.setModalSkillId(skillId);
   }
 
   public isNotEmpty() 
