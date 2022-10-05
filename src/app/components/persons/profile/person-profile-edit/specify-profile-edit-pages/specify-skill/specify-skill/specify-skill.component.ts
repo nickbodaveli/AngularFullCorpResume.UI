@@ -16,6 +16,8 @@ export class SpecifySkillComponent implements OnInit {
   public loading : boolean = false;
   public personId : string | null = null;
   public person : IPerson = {} as IPerson;
+  public skills : ISkills = {} as ISkills;
+  
   public errorMessage : string | null = null;
   public isEditEducation : boolean = false;
   public isEditExperience : boolean = false;
@@ -40,7 +42,6 @@ export class SpecifySkillComponent implements OnInit {
       this.loading = true;
       this.personService.getPerson(this.personId).subscribe((data) => {
       this.person = data;
-      // console.log(this.person);
       this.loading = false;
       }, (error) => {
         this.errorMessage = error;
@@ -49,10 +50,11 @@ export class SpecifySkillComponent implements OnInit {
     }
   }
 
-  public getModalSkillId(skillId : string)
+  public setSkills(item : ISkills)
   {
-    console.log(skillId + "workisss");
-    this.skillService.setModalSkillId(skillId);
+    this.skills.id = item.id;
+    this.skills.personsId = item.personsId;
+    this.skills.name = item.name;
   }
 
   public isNotEmpty() 

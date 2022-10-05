@@ -21,7 +21,7 @@
                         <ul style="display: flex; margin: 0; padding: 0;">
                             <li *ngIf="!isEditSkill" style="padding-top: 5px;"> {{ item.name }}</li>
                             <li style="margin-left: auto; padding: 0; list-style: none;">
-                                <a (click)="getModalSkillId(item.id)" data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                                <a (click)="setSkills(item)" data-bs-toggle="modal" href="#exampleModalToggle" role="button"
                                 style="margin-left:auto; color: #fb246a;" ><i class="fa fa-edit" style="font-size:20px"></i></a>
                             </li>
                         </ul>
@@ -42,7 +42,21 @@
 
 
 
-
-<app-specify-skill-modal></app-specify-skill-modal>
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h1>Opa gangam style   {{ skills.name }}</h1>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
