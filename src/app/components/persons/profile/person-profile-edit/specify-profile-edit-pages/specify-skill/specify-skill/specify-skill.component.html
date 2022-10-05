@@ -1,66 +1,62 @@
 <section class="contact-section">
     <div class="container col-sm-4">
-<div _ngcontent-pda-c55="" class="single-job-items mb-50">
-    <div _ngcontent-pda-c55="" class="job-items">
-        <div _ngcontent-pda-c55="" class="company-img company-img-details" style="display: inline-block;">
+
             
         
 
             <div class="post-details2 mb-50">
                 <!-- Small Section Tittle -->
                <div class="small-section-tittle">
-                   <div style="display: flex;">
-                    <div>
+                   <div>
+                    <div style="display: flex;">
                         <h4>Skills</h4> 
+                        <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                        style="margin-left:auto; color: #fb246a;" href=""><i class="fa fa-edit" style="font-size:20px"></i></a>
                     </div>
                     </div>
                </div>
               <ul>
-                <div *ngFor="let item of person.skills index as i">
-                    <li *ngIf="!isEditSkill"> {{ item.name }} </li>
-                    <li *ngIf="isEditSkill && i != person.skills.length - 1"> {{ item.name }} </li>
-                    <input *ngIf="isEditSkill && i == person.skills.length - 1" [(ngModel)]="item.name" type="text">
+                <div>
+                    <div *ngFor="let item of person.skills index as i">
+                        <ul style="display: flex; margin: 0; padding: 0;">
+                            <li *ngIf="!isEditSkill" style="padding-top: 10px;"> {{ item.name }}</li>
+                            <li style="margin-left: auto; padding: 0; list-style: none;">
+                                <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                                style="margin-left:auto; color: #fb246a;" href=""><i class="fa fa-add" style="font-size:20px"></i></a>
+                            </li>
+                        </ul>
+                        <li style="list-style: none;">1111111</li>
+                        <li style="list-style: none;">2222222</li>
+                        <li style="list-style: none;">3333333</li>
+                    </div>
                 </div>
               </ul>
-              <div>
-               <button (click)="publishNewSkill()" *ngIf="showSkillDoneButton()"
-               style="color: white; 
-               width: 100px; 
-               border: none; 
-               border-radius: 4px; 
-               background-color: #fb246a;
-               padding: 5px;
-               margin-top: 18px;
-               ">DONE</button>
-               <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
-               style="color: white;  
-               display: inline-block;
-               width: 100px; 
-               border: none; 
-               border-radius: 4px; 
-               background-color: #fb246a;
-               padding: 5px;
-               margin-top: 18px;">SAVE</button>
-              </div>
            </div>
-
-
-        </div>
-        </div>
-        <div>
-            <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
-            style="color: white;  
-            background-color: #fb246a;
-            margin-top: 18px;
-            ">+</a>
     
-            <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
-            style="color: white;  
-            background-color: #fb246a;
-            margin-top: 18px;
-            margin-left: 5%;
-            ">edit</a>
-            </div>
-    </div>
-</div>
+
+
+            
+     </div>
 </section>
+
+
+
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Show a second modal and hide this one with the button below.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
