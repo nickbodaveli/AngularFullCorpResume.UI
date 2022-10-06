@@ -16,6 +16,8 @@ export class PersonProfileEditComponent implements OnInit {
   public loading : boolean = false;
   public personId : string | null = null;
   public person : IPerson = {} as IPerson;
+  public skills : ISkills = {} as ISkills;
+  public workingExperience : IWorkingExperiences = {} as IWorkingExperiences;
   public errorMessage : string | null = null;
   public isEditEducation : boolean = false;
   public isEditExperience : boolean = false;
@@ -25,7 +27,8 @@ export class PersonProfileEditComponent implements OnInit {
               private personService: PersonService,
               private experienceService : ExperienceService,
               private educationService : EducationService,
-              private skillService : SkillService
+              private skillService : SkillService,
+              private router : Router
               ) {
 
   }
@@ -49,116 +52,130 @@ export class PersonProfileEditComponent implements OnInit {
     }
   }
 
+  public addSkill()
+  {
+      this.skillService.addSkill(this.skills).subscribe((data) => {
+        this.router.navigate([`/persons`]).then();
+      });
+  }
+
+  public addWorkingExperience()
+  {
+      this.experienceService.addWorkingExperience(this.workingExperience).subscribe((data) => {
+        this.router.navigate([`/persons`]).then();
+      });
+  }
+
   public isNotEmpty() 
   {
     return Object.keys(this.person).length > 0;
   }
 
-  public addNewExperience()
-  {
-    if(!this.isEditExperience)
-    {
-      this.person.workingExperiences.push(
-        <IWorkingExperiences>
-        {
-          personsId: this.person.id, 
-          name:'',
-          description : '',
-          startDate : '',
-          finishDate : '',
-          isPresent : ''
-        });
-      this.isEditExperience = true;
-    }
-  }
+  // public addNewExperience()
+  // {
+  //   if(!this.isEditExperience)
+  //   {
+  //     this.person.workingExperiences.push(
+  //       <IWorkingExperiences>
+  //       {
+  //         personsId: this.person.id, 
+  //         name:'',
+  //         description : '',
+  //         startDate : '',
+  //         finishDate : '',
+  //         isPresent : ''
+  //       });
+  //     this.isEditExperience = true;
+  //   }
+  // }
 
-  public addNewEducation()
-  {
-    if(!this.isEditEducation)
-    {
-      this.person.workingExperiences.push(
-        <IEducations>
-        {
-          personsId: this.person.id, 
-          name:'',
-          description : '',
-          startDate : '',
-          finishDate : '',
-          isPresent : ''
-        });
-      this.isEditEducation = true;
-    }
-  }
+  // public addNewEducation()
+  // {
+  //   if(!this.isEditEducation)
+  //   {
+  //     this.person.workingExperiences.push(
+  //       <IEducations>
+  //       {
+  //         personsId: this.person.id, 
+  //         name:'',
+  //         description : '',
+  //         startDate : '',
+  //         finishDate : '',
+  //         isPresent : ''
+  //       });
+  //     this.isEditEducation = true;
+  //   }
+  // }
 
-  public addNewSkill()
-  {
-    if(!this.isEditSkill)
-    {
-      this.person.skills.push(
-        <ISkills>
-        {
-          personsId: this.person.id, 
-          name:''
-        });
-      this.isEditSkill = true;
-    }
-  }
+  // public addNewSkill()
+  // {
+  //   if(!this.isEditSkill)
+  //   {
+  //     this.person.skills.push(
+  //       <ISkills>
+  //       {
+  //         personsId: this.person.id, 
+  //         name:''
+  //       });
+  //     this.isEditSkill = true;
+  //   }
+  // }
 
-  public publishNewExperience()
-  {
-    if(this.isEditExperience)
-    {
-      this.isEditExperience = false;
-    }
-  }
+  // public publishNewExperience()
+  // {
+  //   if(this.isEditExperience)
+  //   {
+  //     this.isEditExperience = false;
+  //   }
+  // }
 
-  public publishNewEducation()
-  {
-    if(this.isEditEducation)
-    {
-      this.isEditEducation = false;
-    }
-  }
+  // public publishNewEducation()
+  // {
+  //   if(this.isEditEducation)
+  //   {
+  //     this.isEditEducation = false;
+  //   }
+  // }
 
-  public publishNewSkill()
-  {
-    if(this.isEditSkill)
-    {
-      this.isEditSkill = false;
-    }
-  }
+  // public publishNewSkill()
+  // {
+  //   if(this.isEditSkill)
+  //   {
+  //     this.isEditSkill = false;
+  //   }
+  // }
 
-  public saveExperience()
-  {
-    this.experienceService.updateExperience(this.person.id!, this.person.workingExperiences).subscribe();
-  }
+  // public saveExperience()
+  // {
+  //   this.experienceService.updateExperience(this.person.id!, this.person.workingExperiences).subscribe();
+  // }
 
-  public saveEducation()
-  {
-    this.educationService.updateEducation(this.person.id!, this.person.educations).subscribe();
-  }
+  // public saveEducation()
+  // {
+  //   this.educationService.updateEducation(this.person.id!, this.person.educations).subscribe();
+  // }
 
-  public saveSkill()
-  {
-    // this.skillService.updateSkill(this.person.id!, this.person.skills).subscribe();
-  }
+  // public saveSkill()
+  // {
+  //   this.skillService.updateSkill(this.person.id!, this.person.skills).subscribe();
+  // }
 
-  showExperienceDoneButton(): boolean {
-    if (this.isEditExperience) return true;
+  // showExperienceDoneButton(): boolean {
+  //   if (this.isEditExperience) return true;
 
-    return false;
-  }
+  //   return false;
+  // }
 
-  showEducationDoneButton(): boolean {
-    if (this.isEditEducation) return true;
+  // showEducationDoneButton(): boolean {
+  //   if (this.isEditEducation) return true;
 
-    return false;
-  }
+  //   return false;
+  // }
 
-  showSkillDoneButton(): boolean {
-    if (this.isEditSkill) return true;
+  // showSkillDoneButton(): boolean {
+  //   if (this.isEditSkill) return true;
 
-    return false;
-  }
+  //   return false;
+  // }
 
 }

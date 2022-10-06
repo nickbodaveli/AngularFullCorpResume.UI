@@ -9,12 +9,38 @@ import { IWorkingExperiences } from '../models/IPerson';
 export class ExperienceService {
 
   private serverUrl: string = `https://localhost:7172/api`;
+  public workingExperienceId : string | null = null;
 
   constructor(private httpClient: HttpClient) { }
 
-  public updateExperience(experienceId: string, workingExperience :  IWorkingExperiences[]) : Observable<any> {
-    let dataUrl: string = `${this.serverUrl}/Experience/UpdateExperience/${experienceId}`;
+  public updateWorkingExperience(workingExperienceId: string, workingExperience :  IWorkingExperiences) : Observable<any> {
+    let dataUrl: string = `${this.serverUrl}/Experience/UpdateExperience/${workingExperienceId}`;
     return this.httpClient.put(dataUrl, workingExperience).pipe(catchError(this.handleError));
+  }
+
+  public addWorkingExperience(workingExperience :  IWorkingExperiences) : Observable<any> {
+    let dataUrl: string = `${this.serverUrl}/Experience/AddExperience`;
+    return this.httpClient.post(dataUrl, workingExperience).pipe(catchError(this.handleError));
+  }
+
+  public getWorkingExperience(workingExperienceId: string) : Observable<IWorkingExperiences> {
+    if(workingExperienceId)
+    {
+      this.workingExperienceId = workingExperienceId;
+      console.log("mushaobs bliad" + this.workingExperienceId);
+    }
+    else 
+    {
+      console.log("not working")
+    }
+    let dataUrl: string = `${this.serverUrl}/Experience/GetExperience/${workingExperienceId}`;
+    return this.httpClient.get<IWorkingExperiences>(dataUrl).pipe(catchError(this.handleError));
+  }
+
+  public setModalworkingExperienceId(workingExperienceId : string)
+  {
+    console.log(workingExperienceId + "it working too");
+    this.getWorkingExperience(workingExperienceId);
   }
   
   public handleError(error: HttpErrorResponse) {

@@ -79,10 +79,10 @@ export class ViewPersonComponent implements OnInit {
     }
   }
 
-  public saveInDatabase()
-  {
-    this.experienceService.updateExperience(this.person.id!, this.person.workingExperiences).subscribe();
-  }
+  // public saveInDatabase()
+  // {
+  //   this.experienceService.updateExperience(this.person.id!, this.person.workingExperiences).subscribe();
+  // }
 
   showDoneButton(): boolean {
     if (this.isEdit) return true;

@@ -14,10 +14,13 @@ export class SkillService {
   constructor(private httpClient: HttpClient) { }
 
   public updateSkill(skillId: string, skills :  ISkills) : Observable<any> {
-    console.log(skills);
-    console.log("skillid" + skillId);
     let dataUrl: string = `${this.serverUrl}/Skill/UpdateSkill/${skillId}`;
     return this.httpClient.put(dataUrl, skills).pipe(catchError(this.handleError));
+  }
+
+  public addSkill(skills :  ISkills) : Observable<any> {
+    let dataUrl: string = `${this.serverUrl}/Skill/AddSkill`;
+    return this.httpClient.post(dataUrl, skills).pipe(catchError(this.handleError));
   }
 
   public getSkill(skillId: string) : Observable<ISkills> {

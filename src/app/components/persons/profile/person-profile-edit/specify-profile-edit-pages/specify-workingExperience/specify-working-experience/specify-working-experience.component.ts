@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IEducations, IPerson, ISkills, IWorkingExperiences } from 'src/app/models/IPerson';
-import { EducationService } from 'src/app/services/education.service';
+import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { PersonService } from 'src/app/services/person.service';
-import { SkillService } from 'src/app/services/skill.service';
 
 @Component({
-  selector: 'app-specify-skill',
-  templateUrl: './specify-skill.component.html',
-  styleUrls: ['./specify-skill.component.css']
+  selector: 'app-specify-working-experience',
+  templateUrl: './specify-working-experience.component.html',
+  styleUrls: ['./specify-working-experience.component.css']
 })
-export class SpecifySkillComponent implements OnInit {
+export class SpecifyWorkingExperienceComponent implements OnInit {
 
   public loading : boolean = false;
   public personId : string | null = null;
   public person : IPerson = {} as IPerson;
-  public skills : ISkills = {} as ISkills;
+  public workingExperience : IWorkingExperiences = {} as IWorkingExperiences;
   public errorMessage : string | null = null;
 
   constructor(private activatedRoute : ActivatedRoute,
               private personService: PersonService,
-              private skillService : SkillService,
+              private experienceService: ExperienceService,
               private router : Router
               ) {
 
@@ -45,23 +43,27 @@ export class SpecifySkillComponent implements OnInit {
     }
   }
 
-  public setSkills(item : ISkills)
+  public setWorkingExperience(item : IWorkingExperiences)
   {
-    this.skills.id = item.id;
-    this.skills.personsId = item.personsId;
-    this.skills.name = item.name;
+    this.workingExperience.id = item.id;
+    this.workingExperience.personsId = item.personsId;
+    this.workingExperience.name = item.name;
+    this.workingExperience.description = item.description;
+    this.workingExperience.startDate = item.startDate;
+    this.workingExperience.finishDate = item.finishDate;
+    this.workingExperience.isPresent = item.isPresent;
   }
 
-  public addSkill()
+  public addWorkingExperience()
   {
-      this.skillService.addSkill(this.skills).subscribe((data) => {
+      this.experienceService.addWorkingExperience(this.workingExperience).subscribe((data) => {
         this.router.navigate([`/persons`]).then();
       });
   }
 
-  public updateSkill()
+  public updateWorkingExperience()
   {
-      this.skillService.updateSkill(this.skills.id, this.skills).subscribe((data) => {
+      this.experienceService.updateWorkingExperience(this.workingExperience.id, this.workingExperience).subscribe((data) => {
         this.router.navigate([`/persons`]).then();
       });
   }

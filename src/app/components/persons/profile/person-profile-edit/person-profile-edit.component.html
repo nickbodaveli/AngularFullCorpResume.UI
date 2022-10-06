@@ -11,8 +11,10 @@
     </div>
 </div>
 
-<body>
-    <main>
+
+
+
+   
 
         <!-- Hero Area Start-->
         <div class="slider-area ">
@@ -63,114 +65,46 @@
                                 </div>
                                 <p>{{person.about}}</p>
                             </div>
-                            <div class="post-details2  mb-50">
-                                 <!-- Small Section Tittle -->
-                                <div class="small-section-tittle">
-                                    <h4>Required Knowledge, Skills, and Abilities</h4>
-                                </div>
-                               <ul>
-                                   <li>System Software Development</li>
-                                   <li>Mobile Applicationin iOS/Android/Tizen or other platform</li>
-                                   <li>Research and code , libraries, APIs and frameworks</li>
-                                   <li>Strong knowledge on software development life cycle</li>
-                                   <li>Strong problem solving and debugging skills</li>
-                               </ul>
-                            </div>
 
 
-                            <div class="post-details2  mb-50">
-                                 <!-- Small Section Tittle -->
-                                <div class="small-section-tittle">
-                                    <h4 style="display: inline-block;">Education</h4> 
-                                    <button (click)="addNewEducation()"
-                                    style="color: white;  
-                                    display: inline-block;
-                                    width: 100px; 
-                                    border: none; 
-                                    border-radius: 4px; 
-                                    background-color: #fb246a;
-                                    padding: 5px;
-                                    margin-top: 18px;
-                                    margin-left: 70%;
-                                    ">+</button>
-                                </div>
-                               <ul>
-                                <div *ngFor="let item of person.educations; index as i">
-                                    <li *ngIf="!isEditEducation"> {{ item.name }}</li>
-                                    <p *ngIf="!isEditEducation"> {{ item.description }} </p>
-                                    <p *ngIf="!isEditEducation">{{ item.startDate }} - {{ item.finishDate }}</p>
-                                    <li *ngIf="isEditEducation && i != person.educations.length - 1"> {{ item.name }} </li>
-                                    <input *ngIf="isEditEducation && i == person.educations.length - 1" [(ngModel)]="item.name" type="text">
-                                </div>
-                               </ul>
-                               <div>
-                                <button (click)="publishNewEducation()" *ngIf="showEducationDoneButton()"
-                                style="color: white; 
-                                width: 100px; 
-                                border: none; 
-                                border-radius: 4px; 
-                                background-color: #fb246a;
-                                padding: 5px;
-                                margin-top: 18px;
-                                ">DONE</button>
-                                <button (click)="saveEducation()" *ngIf="!showEducationDoneButton()" 
-                                style="color: white;  
-                                display: inline-block;
-                                width: 100px; 
-                                border: none; 
-                                border-radius: 4px; 
-                                background-color: #fb246a;
-                                padding: 5px;
-                                margin-top: 18px;">SAVE</button>
-                               </div>
-                            </div>
+
 
 
                             <div class="post-details2  mb-50">
                                 <!-- Small Section Tittle -->
                                <div class="small-section-tittle">
-                                   <h4 style="display: inline-block;">Experience</h4> 
-                                   <button (click)="addNewExperience()"
-                                   style="color: white;  
-                                   display: inline-block;
-                                   width: 100px; 
-                                   border: none; 
-                                   border-radius: 4px; 
-                                   background-color: #fb246a;
-                                   padding: 5px;
-                                   margin-top: 18px;
-                                   margin-left: 70%;
-                                   ">+</button>
+                                        <div style="display: flex; ">
+                                            <div>
+                                                <h4>Experience</h4>
+                                            </div>
+        
+                                            <div style="display: flex; margin-left: auto;">
+        
+                                                <a data-toggle="modal" data-target="#workingExperienceAddModal"
+                                                style="margin-left:auto; 
+                                                color: #fb246a; 
+                                                font-size:20px;" 
+                                                ><i class="fa fa-add"></i></a>
+                
+                                                <a routerLink="/persons/specify-profile/experiences/edit/{{person.id}}"
+                                                style="color: white;  
+                                                color: #fb246a;
+                                                margin-left: 20%;
+                                                font-size:20px;
+                                                "><i class="fa fa-edit"></i></a>
+        
+                                            </div>
+                                        </div>
                                </div>
                               <ul>
                                 <div *ngFor="let item of person.workingExperiences; index as i">
-                                    <li *ngIf="!isEditExperience"> {{ item.name }} </li>
-                                    <p *ngIf="!isEditExperience"> {{ item.description }} </p>
-                                    <p *ngIf="!isEditExperience">{{ item.startDate }} - {{ item.finishDate }}</p>
-                                    <li *ngIf="isEditExperience && i != person.workingExperiences.length - 1"> {{ item.name }} </li>
-                                    <input *ngIf="isEditExperience && i == person.workingExperiences.length - 1" [(ngModel)]="item.name" type="text">
+                                    <li> {{ item.name }} </li>
+                                    <li style="list-style: none;"> {{ item.description }} </li>
+                                    <li style="list-style: none;"> {{ item.startDate }} </li>
+                                    <li style="list-style: none;"> {{ item.finishDate }} </li>
+                                    <li style="list-style: none;"> {{ item.isPresent }} </li>
                                 </div>
                               </ul>
-                              <div>
-                               <button (click)="publishNewExperience()" *ngIf="showExperienceDoneButton()"
-                               style="color: white; 
-                               width: 100px; 
-                               border: none; 
-                               border-radius: 4px; 
-                               background-color: #fb246a;
-                               padding: 5px;
-                               margin-top: 18px;
-                               ">DONE</button>
-                               <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
-                               style="color: white;  
-                               display: inline-block;
-                               width: 100px; 
-                               border: none; 
-                               border-radius: 4px; 
-                               background-color: #fb246a;
-                               padding: 5px;
-                               margin-top: 18px;">SAVE</button>
-                              </div>
                            </div>
 
 
@@ -179,157 +113,42 @@
 
 
 
-
-
-                           <div class="post-details2  mb-50">
-                            <!-- Small Section Tittle -->
-                           <div class="small-section-tittle">
-                               <h4 style="display: inline-block;">Skills</h4> 
-                               <button (click)="addNewSkill()"
-                               style="color: white;  
-                               display: inline-block;
-                               width: 100px; 
-                               border: none; 
-                               border-radius: 4px; 
-                               background-color: #fb246a;
-                               padding: 5px;
-                               margin-top: 18px;
-                               margin-left: 70%;
-                               ">+</button>
+                            <div class="post-details2  mb-50">
+                                <!-- Small Section Tittle -->
+                               <div class="small-section-tittle">
+                                        <div style="display: flex; ">
+                                            <div>
+                                                <h4>Skills</h4>
+                                            </div>
+        
+                                            <div style="display: flex; margin-left: auto;">
+        
+                                                <a data-toggle="modal" data-target="#skillAddModal"
+                                                style="margin-left:auto; 
+                                                color: #fb246a; 
+                                                font-size:20px;" 
+                                                ><i class="fa fa-add"></i></a>
+                
+                                                <a routerLink="/persons/specify-profile/skills/edit/{{person.id}}"
+                                                style="color: white;  
+                                                color: #fb246a;
+                                                margin-left: 20%;
+                                                font-size:20px;
+                                                "><i class="fa fa-edit"></i></a>
+        
+                                            </div>
+                                        </div>
+                               </div>
+                              <ul>
+                                <div *ngFor="let item of person.skills; index as i">
+                                    <li> {{ item.name }} </li>
+                                </div>
+                              </ul>
                            </div>
-                          <ul>
-                            <div *ngFor="let item of person.skills index as i">
-                                <li *ngIf="!isEditSkill"> {{ item.name }} </li>
-                                <li *ngIf="isEditSkill && i != person.skills.length - 1"> {{ item.name }} </li>
-                                <input *ngIf="isEditSkill && i == person.skills.length - 1" [(ngModel)]="item.name" type="text">
-                            </div>
-                          </ul>
-                          <div>
-                           <button (click)="publishNewSkill()" *ngIf="showSkillDoneButton()"
-                           style="color: white; 
-                           width: 100px; 
-                           border: none; 
-                           border-radius: 4px; 
-                           background-color: #fb246a;
-                           padding: 5px;
-                           margin-top: 18px;
-                           ">DONE</button>
-                           <button (click)="saveSkill()" *ngIf="!showSkillDoneButton()" 
-                           style="color: white;  
-                           display: inline-block;
-                           width: 100px; 
-                           border: none; 
-                           border-radius: 4px; 
-                           background-color: #fb246a;
-                           padding: 5px;
-                           margin-top: 18px;">SAVE</button>
-                          </div>
-                       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                       <div class="post-details2  mb-50 col-lg-12">
-                        <!-- Small Section Tittle -->
-                       <div class="small-section-tittle">
-                           <h4 style="display: inline-block;">Skills</h4> 
-                            <div style="display: flex;">
-                                <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
-                                style="color: white;  
-                                display: inline-block;
-                                background-color: #fb246a;
-                                margin-top: 18px;
-                                margin-left: 70%;
-                                ">+</a>
-                                <a routerLink="/persons/specify-profile/skills/edit/{{person.id}}"
-                                style="color: white;  
-                                display: inline-block;
-                                background-color: #fb246a;
-                                margin-top: 18px;
-                                margin-left: 1%;
-                                ">edit</a>
-                            </div>
-                       </div>
-                      <ul>
-                        <div *ngFor="let item of person.skills; index as i">
-                            <li *ngIf="!isEditSkill"> {{ item.name }} </li>
-                            <li *ngIf="isEditSkill && i != person.skills.length - 1"> {{ item.name }} </li>
-                            <input *ngIf="isEditSkill && i == person.skills.length - 1" [(ngModel)]="item.name" type="text">
                         </div>
-                      </ul>
-                      <div>
-                       <button (click)="publishNewSkill()" *ngIf="showSkillDoneButton()"
-                       style="color: white; 
-                       width: 100px; 
-                       border: none; 
-                       border-radius: 4px; 
-                       background-color: #fb246a;
-                       padding: 5px;
-                       margin-top: 18px;
-                       ">DONE</button>
-                       <button (click)="saveExperience()" *ngIf="!showExperienceDoneButton()" 
-                       style="color: white;  
-                       display: inline-block;
-                       width: 100px; 
-                       border: none; 
-                       border-radius: 4px; 
-                       background-color: #fb246a;
-                       padding: 5px;
-                       margin-top: 18px;">SAVE</button>
-                      </div>
-                   </div>
-
-
-
-
-
-
-
-
-
-
-
-                       <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                        <div class="modal-dialog modal-dialog-centered">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Show a second modal and hide this one with the button below.
-                            </div>
-                            <div class="modal-footer">
-                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
-
-
-
-
-
-
-
-
-                        </div>
-
-                        
-
                     </div>
+
+                    
                     <!-- Right Content -->
                     <div class="col-xl-4 col-lg-4">
                         <div class="post-details3  mb-50">
@@ -364,4 +183,85 @@
                 ">UPDATE</button> -->
             </div>
         </div>
-    </main>
+
+        
+
+ 
+
+
+
+
+    
+
+    <div class="modal fade" id="workingExperienceAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Experience</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+           
+            <div class="modal-body">
+              <input [(ngModel)]="workingExperience.personsId" name="personsId" class="modalTextInput form-control" placeholder="Enter personsId" />
+            </div>
+      
+              <div class="modal-body">
+                <input [(ngModel)]="workingExperience.name" name="name" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="workingExperience.description" name="description" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="workingExperience.startDate" name="startDate" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="workingExperience.finishDate" name="finishDate" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="workingExperience.isPresent" name="isPresent" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-footer">
+                <button (click)="addWorkingExperience()" type="submit" class="saveEdit btn btn-primary">Save changes</button>
+              </div>
+         
+          </div>
+        </div>
+      </div>  
+
+
+
+
+      
+      <div class="modal fade" id="skillAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Skill</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+           
+            <div class="modal-body">
+              <input [(ngModel)]="workingExperience.personsId" name="personsId" class="modalTextInput form-control" placeholder="Enter personsId" />
+            </div>
+      
+              <div class="modal-body">
+                <input [(ngModel)]="workingExperience.name" name="name" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+         
+              
+              <div class="modal-footer">
+                <button (click)="addSkill()" type="submit" class="saveEdit btn btn-primary">Save changes</button>
+              </div>
+
+          </div>
+        </div>
+      </div> 
