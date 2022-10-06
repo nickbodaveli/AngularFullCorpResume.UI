@@ -140,7 +140,7 @@ export class PersonProfileEditComponent implements OnInit {
 
   public saveSkill()
   {
-    this.skillService.updateSkill(this.person.id!, this.person.skills).subscribe();
+    // this.skillService.updateSkill(this.person.id!, this.person.skills).subscribe();
   }
 
   showExperienceDoneButton(): boolean {

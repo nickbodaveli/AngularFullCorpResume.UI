@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IEducations, IPerson, ISkills, IWorkingExperiences } from 'src/app/models/IPerson';
 import { EducationService } from 'src/app/services/education.service';
 import { ExperienceService } from 'src/app/services/experience.service';
@@ -27,7 +27,8 @@ export class SpecifySkillComponent implements OnInit {
               private personService: PersonService,
               private experienceService : ExperienceService,
               private educationService : EducationService,
-              private skillService : SkillService
+              private skillService : SkillService,
+              private router : Router
               ) {
 
   }
@@ -55,6 +56,13 @@ export class SpecifySkillComponent implements OnInit {
     this.skills.id = item.id;
     this.skills.personsId = item.personsId;
     this.skills.name = item.name;
+  }
+
+  public updateSkill()
+  {
+      this.skillService.updateSkill(this.skills.id, this.skills).subscribe((data) => {
+        this.router.navigate([`/persons`]).then();
+      });
   }
 
   public isNotEmpty() 
@@ -148,7 +156,7 @@ export class SpecifySkillComponent implements OnInit {
 
   public saveSkill()
   {
-    this.skillService.updateSkill(this.person.id!, this.person.skills).subscribe();
+    // this.skillService.updateSkill(this.person.id!, this.person.skills).subscribe();
   }
 
   showExperienceDoneButton(): boolean {

@@ -12,7 +12,6 @@ import { MainPersonComponent } from './main-person/main-person.component';
 import { PersonProfileViewComponent } from './profile/person-profile-view/person-profile-view.component';
 import { PersonProfileEditComponent } from './profile/person-profile-edit/person-profile-edit.component';
 import { SpecifySkillComponent } from './profile/person-profile-edit/specify-profile-edit-pages/specify-skill/specify-skill/specify-skill.component';
-import { SpecifySkillModalComponent } from './profile/person-profile-edit/specify-profile-edit-pages/specify-skill/specify-skill/specify-skill-edit-modal/specify-skill-modal/specify-skill-modal.component';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { SpecifySkillModalComponent } from './profile/person-profile-edit/specif
     PersonProfileViewComponent,
     PersonProfileEditComponent,
     SpecifySkillComponent,
-    SpecifySkillModalComponent,
   ],
   imports: [
     CommonModule,

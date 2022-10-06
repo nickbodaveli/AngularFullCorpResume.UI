@@ -10,7 +10,7 @@
                    <div>
                     <div style="display: flex;">
                         <h4>Skills</h4> 
-                        <a data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                        <a data-bs-toggle="modal" href="#exampleModal" role="button"
                         style="margin-left:auto; color: #fb246a;" ><i class="fa fa-add" style="font-size:20px"></i></a>
                     </div>
                     </div>
@@ -21,7 +21,7 @@
                         <ul style="display: flex; margin: 0; padding: 0;">
                             <li *ngIf="!isEditSkill" style="padding-top: 5px;"> {{ item.name }}</li>
                             <li style="margin-left: auto; padding: 0; list-style: none;">
-                                <a (click)="setSkills(item)" data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+                                <a (click)="setSkills(item)" data-toggle="modal" data-target="#exampleModal"
                                 style="margin-left:auto; color: #fb246a;" ><i class="fa fa-edit" style="font-size:20px"></i></a>
                             </li>
                         </ul>
@@ -42,21 +42,32 @@
 
 
 
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Skills</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="modal-body">
-          <h1>Opa gangam style   {{ skills.name }}</h1>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-        </div>
+       
+          <div class="modal-body">
+            <input [(ngModel)]="skills.id" [value]="skills.id" class="modalTextInput form-control" placeholder="Text Here" />
+          </div>
+          <div class="modal-body">
+            <input [(ngModel)]="skills.personsId" [value]="skills.personsId" class="modalTextInput form-control" placeholder="Text Here" />
+          </div>
+          <div class="modal-body">
+            <input [(ngModel)]="skills.name" [value]="skills.name" class="modalTextInput form-control" placeholder="Text Here" />
+          </div>
+          <div class="modal-footer">
+            <button (click)="updateSkill()" type="submit" class="saveEdit btn btn-primary">Save changes</button>
+          </div>
+     
       </div>
     </div>
-  </div>
+  </div> 
+
   
-  <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
+  
