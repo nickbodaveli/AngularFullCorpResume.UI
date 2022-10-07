@@ -5,6 +5,7 @@ import { AddPersonComponent } from '../persons/add-person/add-person.component';
 import { EditPersonComponent } from '../persons/edit-person/edit-person.component';
 import { MainPersonComponent } from '../persons/main-person/main-person.component';
 import { PersonProfileEditComponent } from '../persons/profile/person-profile-edit/person-profile-edit.component';
+import { SpecifyEducationComponent } from '../persons/profile/person-profile-edit/specify-profile-edit-pages/specify-education/specify-education.component';
 import { SpecifySkillComponent } from '../persons/profile/person-profile-edit/specify-profile-edit-pages/specify-skill/specify-skill/specify-skill.component';
 import { SpecifyWorkingExperienceComponent } from '../persons/profile/person-profile-edit/specify-profile-edit-pages/specify-workingExperience/specify-working-experience/specify-working-experience.component';
 import { PersonProfileViewComponent } from '../persons/profile/person-profile-view/person-profile-view.component';
@@ -63,6 +64,12 @@ const routes: Routes = [
     {
       path: 'persons/specify-profile/experiences/edit/:personId',
       component: SpecifyWorkingExperienceComponent,
+      canActivate: [AuthGuard], // ==> Check that this route can be activate wich mean user you can have access
+      data: { permittedRoles: ['Admin', 'User']} // These are the permitted that access this route
+    },
+    {
+      path: 'persons/specify-profile/educations/edit/:personId',
+      component: SpecifyEducationComponent,
       canActivate: [AuthGuard], // ==> Check that this route can be activate wich mean user you can have access
       data: { permittedRoles: ['Admin', 'User']} // These are the permitted that access this route
     }

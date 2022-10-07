@@ -13,6 +13,7 @@ import { PersonProfileViewComponent } from './profile/person-profile-view/person
 import { PersonProfileEditComponent } from './profile/person-profile-edit/person-profile-edit.component';
 import { SpecifySkillComponent } from './profile/person-profile-edit/specify-profile-edit-pages/specify-skill/specify-skill/specify-skill.component';
 import { SpecifyWorkingExperienceComponent } from './profile/person-profile-edit/specify-profile-edit-pages/specify-workingExperience/specify-working-experience/specify-working-experience.component';
+import { SpecifyEducationComponent } from './profile/person-profile-edit/specify-profile-edit-pages/specify-education/specify-education.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SpecifyWorkingExperienceComponent } from './profile/person-profile-edit
     PersonProfileEditComponent,
     SpecifySkillComponent,
     SpecifyWorkingExperienceComponent,
+    SpecifyEducationComponent,
   ],
   imports: [
     CommonModule,

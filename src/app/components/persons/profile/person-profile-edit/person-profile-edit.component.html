@@ -71,6 +71,45 @@
 
 
                             <div class="post-details2  mb-50">
+                              <!-- Small Section Tittle -->
+                             <div class="small-section-tittle">
+                                      <div style="display: flex; ">
+                                          <div>
+                                              <h4>Education</h4>
+                                          </div>
+      
+                                          <div style="display: flex; margin-left: auto;">
+      
+                                              <a data-toggle="modal" data-target="#educationAddModal"
+                                              style="margin-left:auto; 
+                                              color: #fb246a; 
+                                              font-size:20px;" 
+                                              ><i class="fa fa-add"></i></a>
+              
+                                              <a routerLink="/persons/specify-profile/educations/edit/{{person.id}}"
+                                              style="color: white;  
+                                              color: #fb246a;
+                                              margin-left: 20%;
+                                              font-size:20px;
+                                              "><i class="fa fa-edit"></i></a>
+      
+                                          </div>
+                                      </div>
+                             </div>
+                            <ul>
+                              <div *ngFor="let item of person.educations; index as i">
+                                  <li> {{ item.name }} </li>
+                                  <li style="list-style: none;"> {{ item.description }} </li>
+                                  <li style="list-style: none;"> {{ item.startDate }} </li>
+                                  <li style="list-style: none;"> {{ item.finishDate }} </li>
+                                  <li style="list-style: none;"> {{ item.isPresent }} </li>
+                              </div>
+                            </ul>
+                         </div>
+
+
+
+                            <div class="post-details2  mb-50">
                                 <!-- Small Section Tittle -->
                                <div class="small-section-tittle">
                                         <div style="display: flex; ">
@@ -234,6 +273,50 @@
           </div>
         </div>
       </div>  
+
+
+
+      <div class="modal fade" id="educationAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Education</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+           
+            <div class="modal-body">
+              <input [(ngModel)]="education.personsId" name="personsId" class="modalTextInput form-control" placeholder="Enter personsId" />
+            </div>
+      
+              <div class="modal-body">
+                <input [(ngModel)]="education.name" name="name" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="education.description" name="description" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="education.startDate" name="startDate" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="education.finishDate" name="finishDate" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-body">
+                <input [(ngModel)]="education.isPresent" name="isPresent" class="modalTextInput form-control" placeholder="Enter Name" />
+              </div>
+
+              <div class="modal-footer">
+                <button (click)="addEducation()" type="submit" class="saveEdit btn btn-primary">Save changes</button>
+              </div>
+         
+          </div>
+        </div>
+      </div> 
 
 
 

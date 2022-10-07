@@ -1,0 +1,147 @@
+<section class="contact-section">
+    <div class="container col-sm-4">
+            <div class="post-details2 mb-50">
+                <!-- Small Section Tittle -->
+               <div class="small-section-tittle">
+                   <div>
+                    <div style="display: flex;">
+                        <h4>Educations</h4> 
+                        <a data-toggle="modal" data-target="#educationAddModal"
+                        style="margin-left:auto; color: #fb246a;" ><i class="fa fa-add" style="font-size:20px"></i></a>
+                    </div>
+                    </div>
+               </div>
+              <ul>
+                <div>
+                    <div *ngFor="let item of person.educations; index as i">
+                        <ul style="display: flex; margin: 0; padding: 0;">
+                            <li style="padding-top: 5px;"> {{ item.name }}</li>
+                            <li style="margin-left: auto; padding: 0; list-style: none;">
+                              <a (click)="setEducation(item)" 
+                                          data-toggle="modal" 
+                                          data-target="#editEducationModal"
+                                          style="margin-left:auto; color: #fb246a;">
+                                          <i class="fa fa-edit" style="font-size:20px"></i>
+                              </a>
+                            </li>
+                        </ul>
+                        <li style="list-style: none;">{{ item.description }}</li>
+                        <li style="list-style: none;">{{ item.startDate }}</li>
+                        <li style="list-style: none;">{{ item.finishDate }}</li>
+                        <li style="list-style: none;">{{ item.isPresent }}</li>
+                        <hr>
+                    </div>
+                </div>
+              </ul>
+           </div>
+     </div>
+</section>
+
+
+<div class="modal fade" id="educationAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Skills</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
+      <div class="modal-body">
+        <input [(ngModel)]="education.personsId" name="personsId" class="modalTextInput form-control" placeholder="Enter personsId" />
+      </div>
+
+        <div class="modal-body">
+          <input [(ngModel)]="education.name" name="name" class="modalTextInput form-control" placeholder="Enter Name" />
+        </div>
+        <div class="modal-footer">
+          <button (click)="addEducation()" type="submit" class="saveEdit btn btn-primary">Save changes</button>
+        </div>
+   
+    </div>
+  </div>
+</div>  
+
+
+<div class="modal fade" id="educationAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Experience</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       
+       <div class="modal-body">
+              <input [(ngModel)]="education.id" name="id" [value]="education.id" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.personsId" name="personsId" [value]="education.personsId" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.name" name="name" [value]="education.name" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.description" name="description" [value]="education.description" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.startDate" name="startDate" [value]="education.startDate" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.finishDate" name="finishDate" [value]="education.finishDate" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.isPresent" name="isPresent" [value]="education.isPresent" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-footer">
+              <button (click)="addEducation()" type="submit" class="saveEdit btn btn-primary">Update changes</button>
+            </div>
+     
+      </div>
+    </div>
+  </div>  
+  
+  
+   <div class="modal fade" id="editEducationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Experience</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+         
+            <div class="modal-body">
+              <input [(ngModel)]="education.id" [value]="education.id" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.personsId" [value]="education.personsId" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.name" [value]="education.name" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.description" [value]="education.description" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.startDate" [value]="education.startDate" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.finishDate" [value]="education.finishDate" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-body">
+              <input [(ngModel)]="education.isPresent" [value]="education.isPresent" class="modalTextInput form-control" placeholder="Text Here" />
+            </div>
+            <div class="modal-footer">
+              <button (click)="updateEducation()" type="submit" class="saveEdit btn btn-primary">Update changes</button>
+            </div>
+       
+        </div>
+      </div>
+    </div> 
+
+  
+  

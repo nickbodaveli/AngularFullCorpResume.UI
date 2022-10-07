@@ -18,6 +18,7 @@ export class PersonProfileEditComponent implements OnInit {
   public person : IPerson = {} as IPerson;
   public skills : ISkills = {} as ISkills;
   public workingExperience : IWorkingExperiences = {} as IWorkingExperiences;
+  public education : IEducations = {} as IEducations;
   public errorMessage : string | null = null;
   public isEditEducation : boolean = false;
   public isEditExperience : boolean = false;
@@ -62,6 +63,13 @@ export class PersonProfileEditComponent implements OnInit {
   public addWorkingExperience()
   {
       this.experienceService.addWorkingExperience(this.workingExperience).subscribe((data) => {
+        this.router.navigate([`/persons`]).then();
+      });
+  }
+
+  public addEducation()
+  {
+      this.educationService.addEducation(this.education).subscribe((data) => {
         this.router.navigate([`/persons`]).then();
       });
   }
