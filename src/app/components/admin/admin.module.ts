@@ -15,7 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
     {
       path: '',
-      component: DashboardComponent,
+      component: MainPersonComponent,
       canActivate: [AuthGuard], // ==> Check that this route can be activate wich mean user you can have access
       data: { permittedRoles: ['Admin', 'User']} // These are the permitted that access this route
     },

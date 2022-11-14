@@ -57,6 +57,14 @@
                                     <input class="form-control valid" [(ngModel)] ="person.website" name="website" id="website" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'website'" placeholder="website">
                                 </div>
                             </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <!-- <input class="form-control valid" type="file" [(ngModel)]="rawFile" [ngModelOptions]="{standalone: true}" (change)="uploadFile()"> -->
+                                    <input class="form-control valid" type="file" (change)="handleFileInput($event)">
+
+                                </div>
+                            </div>
                           
                         </div>
                         <div class="form-group mt-3">

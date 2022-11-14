@@ -11,6 +11,8 @@ export interface IPerson {
     workingExperiences: Array<IWorkingExperiences>;
     educations: Array<IEducations>;
     skills: Array<ISkills>;
+    // file: FormData;
+    file: any;
 }
 
 export interface IWorkingExperiences {

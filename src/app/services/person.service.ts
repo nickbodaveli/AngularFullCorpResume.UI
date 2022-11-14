@@ -21,7 +21,7 @@ export class PersonService {
     return this.httpClient.get<IPerson>(dataUrl).pipe(catchError(this.handleError));
   }
 
-  public createPerson(person: IPerson) : Observable<IPerson> {
+  public createPerson(person: FormData) : Observable<IPerson> {
     let dataUrl: string = `${this.serverUrl}/Person/AddPerson`;
     return this.httpClient.post<IPerson>(dataUrl, person).pipe(catchError(this.handleError));
   }
