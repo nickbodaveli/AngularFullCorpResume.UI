@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.personService.getPersonByUserId(this.id).subscribe((personId) => {
       if(personId != -1)
       {
-        this.router.navigate([`/persons/profile/edit/${personId}`]).then();
+        this.router.navigate([`/persons/profile/view/${personId}`]).then();
       }
       else 
       {

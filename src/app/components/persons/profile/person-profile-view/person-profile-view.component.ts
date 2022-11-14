@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPerson, IWorkingExperiences } from 'src/app/models/IPerson';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { PersonService } from 'src/app/services/person.service';
@@ -22,7 +22,8 @@ export class PersonProfileViewComponent implements OnInit {
 
   constructor(private activatedRoute : ActivatedRoute,
               private personService: PersonService,
-              private experienceService : ExperienceService
+              private experienceService : ExperienceService,
+              private router: Router
               ) {
 
   }
@@ -85,6 +86,16 @@ export class PersonProfileViewComponent implements OnInit {
     if (this.isEdit) return true;
 
     return false;
+  }
+
+  profile(personId:string)
+  {
+    this.personService.getPersonByUserId(personId).subscribe((personId) => {
+      if(personId != -1)
+      {
+        this.router.navigate([`/persons/profile/edit/${personId}`]).then();
+      }
+    });
   }
 
 }

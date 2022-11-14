@@ -53,6 +53,20 @@ export class PersonProfileEditComponent implements OnInit {
     }
   }
 
+  public updatePerson()
+  {
+      if(this.personId)
+      {
+        this.personService.updatePerson(this.person, this.personId).subscribe((data) => {
+          this.router.navigate([`/persons`]).then();
+        });
+      }
+      else 
+      {
+        console.log("personId doesnt exist");
+      }
+  }
+
   public addSkill()
   {
       this.skillService.addSkill(this.skills).subscribe((data) => {
