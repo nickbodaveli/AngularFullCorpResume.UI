@@ -37,9 +37,9 @@ export class PersonService {
   }
 
 
-  public getPersonByUserId(userId: string) : Observable<IPerson> {
+  public getPersonByUserId(userId: string) : Observable<number> {
     let dataUrl: string = `${this.serverUrl}/Person/GetPersonByUserId/${userId}`;
-    return this.httpClient.get<IPerson>(dataUrl).pipe(catchError(this.handleError));
+    return this.httpClient.get<number>(dataUrl).pipe(catchError(this.handleError));
   }
   
   public handleError(error: HttpErrorResponse) {

@@ -35,7 +35,14 @@ export class HeaderComponent implements OnInit {
   profile()
   {
     this.personService.getPersonByUserId(this.id).subscribe((personId) => {
-      this.router.navigate([`/persons/profile/edit/${personId}`]).then();
+      if(personId != -1)
+      {
+        this.router.navigate([`/persons/profile/edit/${personId}`]).then();
+      }
+      else 
+      {
+        this.router.navigate([`/persons/add`]).then();
+      }
     });
   }
 
